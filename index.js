@@ -1,7 +1,3 @@
-const account = {
-    name: '',
-    newpassword: '',
-}
 
 
 function validatePassword(string1,string2){
@@ -55,5 +51,18 @@ function reversePassword(password){
 }   
 
 
-console.log(reversePassword("ivanne"))
-console.log('ennavi' === reversePassword("ivanne"))
+function storePassword(name, password1, password2){
+    let account = {name : name,
+    }
+    if(validatePassword(password1,password2)){
+        account.newpassword = reversePassword(password1)
+    }else{
+        account.newpassword = password1
+    }
+
+    return account
+}
+
+
+console.log(storePassword("John","Pass1234","Pass1234"))
+console.log(storePassword("John","Pass123","Pass12345"))
