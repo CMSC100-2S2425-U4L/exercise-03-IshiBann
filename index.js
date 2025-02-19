@@ -24,23 +24,19 @@ function validatePassword(string1,string2){
         character = string1[a]
         // console.log(character);
         // console.log(typeof(character));
-        
-
-        if(!Number.isNaN(character)){
+        if(character >= '0' && character <= '9'){
             // console.log("has Number")
             hasNumeric = true;
-         
+            continue;
         }
-        
         if(string1.charAt(a) === string1.charAt(a).toLowerCase()){
                 hasLower = true;
                 // console.log("has lower")
-          
+                continue;
         }
         if(string1.charAt(a) === string1.charAt(a).toUpperCase()){
                 hasUpper = true;
                 // console.log("has Upper")
-           
         }
     }
 
@@ -50,35 +46,14 @@ function validatePassword(string1,string2){
 
 }
 
+function reversePassword(password){
+    let reversedPassword = "";
+    for(let a = password.length-1; a>=0; a--){
+        reversedPassword = reversedPassword.concat(password[a]);
+    }
+    return reversedPassword;
+}   
 
 
-if(validatePassword("helloworld","hello")){
-    console.log("true")
-}else{
-    console.log("false")
-}
-
-if(validatePassword("hello","hello")){
-    console.log("true")
-}else{
-    console.log("false")
-}
-
-
-if(validatePassword("hello1234","hello1234")){
-    console.log("true")
-}else{
-    console.log("false")
-}
-
-if(validatePassword("Hello1234","Hello1234")){
-    console.log("true")
-}else{
-    console.log("false")
-}
-
-if(validatePassword("HELLO1234","HELLO1234")){
-    console.log("true")
-}else{
-    console.log("false")
-}
+console.log(reversePassword("ivanne"))
+console.log('ennavi' === reversePassword("ivanne"))
